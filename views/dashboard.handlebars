@@ -1,17 +1,17 @@
 <div class="">
-    <div class "">
-        <h2>Welcome to Doggy Daycare {{user.name}} !</h2>
-    </div> 
+  <div class="">
+    <h2 class="">Does {{reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
+    <button class="" data-id="{{reservation}}">Book Now!</button>
+  </div>
+  <div class="">
+    <p>Your dog is: {{reservation.dog_name}}</p>
+    <p>Breed: {{reservation.breed}}</p>
+    <p>Age: {{reservation.age}}</p>
+  </div>
 </div>
 
-<div class="">
-  <div class="">
-    <h2 class="">Start new reservation for {{reservation.dog_name}}</h2>
-    <button class="" data-id="{{reservation}}">Book Now</button>
-  </div>
-  <image class=""></image>
-</div>
----
+<!--get reservation to populate with button above-->
+
 <script src="./js/profile.js"></script>
 
 <div class="">
