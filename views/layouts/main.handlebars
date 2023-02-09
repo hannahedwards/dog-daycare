@@ -14,9 +14,8 @@
     <header class="">
       <h1>Doggy Daycare</h1>
       <nav>
-        <!-- FROM MINI PROJ - Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/dashboard">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
@@ -29,12 +28,8 @@
     <main class="">
       {{{ body }}}
     </main>
-    <footer>
-      
-    </footer>
   </div>
 
-<!--from mini proj-->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
