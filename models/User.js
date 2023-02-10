@@ -28,6 +28,11 @@ User.init(
         isEmail: true,
       },
     },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +40,7 @@ User.init(
         len: [8],
       },
     },
+    
   },
   {
     hooks: {

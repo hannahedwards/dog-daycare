@@ -3,27 +3,13 @@ const { Reservation, User } = require('../models') //requiring models
 const withAuth = require('../utils/auth');
 
 //CRUD commands below 
-router.get('/', async (req, res) => {
-    try {
-        const reservationData = await Reservation.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
-
-        const reservation = reservationData.map((reservation) => reservation.get({ plain: true }));
-
-        res.render('homepage', {
-            reservation,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get('/', (req, res)=> {
+try {res.render('homepage');
+} catch (err) {
+    res.status(500).json(err);
+}
 });
+
 
 router.get('/reservation/:id', async (req, res) => {
     try {
@@ -38,7 +24,7 @@ router.get('/reservation/:id', async (req, res) => {
 
          const reservation = reservationData.get({ plain: true });
 
-        res.render('reservation', {
+        res.render('dashboard', {
             ...reservation,
             logged_in: req.session.logged_in
         });
