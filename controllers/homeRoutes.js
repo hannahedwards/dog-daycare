@@ -36,13 +36,14 @@ router.get('/reservation/:id', async (req, res) => {
             ],
         });
 
-        const reservation = reservationData.get({ plain: true });
+        const reservation = reservationData.map((reservation) => reservation.get({ plain: true }));
 
         res.render('reservation', {
             ...reservation,
             logged_in: req.session.logged_in
         });
     } catch (err) {
+        console.log (err);
         res.status(500).json(err);
     }
 });
