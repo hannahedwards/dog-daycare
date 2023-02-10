@@ -36,7 +36,7 @@ router.get('/reservation/:id', async (req, res) => {
             ],
         });
 
-        const reservation = reservationData.map((reservation) => reservation.get({ plain: true }));
+         const reservation = reservationData.get({ plain: true });
 
         res.render('reservation', {
             ...reservation,
