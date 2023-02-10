@@ -11,28 +11,28 @@ try {res.render('homepage');
 });
 
 
-router.get('/reservation/:id', async (req, res) => {
-    try {
-        const reservationData = await Reservation.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
+// router.get('/reservation/:id', async (req, res) => {
+//     try {
+//         const reservationData = await Reservation.findByPk(req.params.id, {
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['name'],
+//                 },
+//             ],
+//         });
 
-         const reservation = reservationData.get({ plain: true });
+//          const reservation = reservationData.get({ plain: true });
 
-        res.render('dashboard', {
-            ...reservation,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        console.log (err);
-        res.status(500).json(err);
-    }
-});
+//         res.render('dashboard', {
+//             ...reservation,
+//             logged_in: req.session.logged_in
+//         });
+//     } catch (err) {
+//         console.log (err);
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/user', withAuth, async (req, res) => {
     try {
@@ -43,7 +43,7 @@ router.get('/user', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('user', {
+        res.render('dashboard', {
             ...user,
             logged_in: true
         });
@@ -54,7 +54,7 @@ router.get('/user', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/dashboard');
         return;
     }
 
