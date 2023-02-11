@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
   
     if (email && password) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },// will have to look into?
@@ -15,15 +15,15 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the reservation page
-        document.location.replace('/reservation');
+        document.location.replace('/user');
       } else {
         alert(response.statusText);
       }
     }
   };
   
-  const signupFormHandler = async (event) => { //when registered, it takes you immediately to /user endpoint route
-    event.preventDefault();
+  const signupFormHandler = async (event) => { //when registered, it takes you immediately to /user endpoint in  homeRoutes or Api?
+    event.preventDefault(); //user endpoint route is the dashboard.handlebars file 
   
     const name = document.querySelector('#customer-name-register').value.trim();
     const email = document.querySelector('#customer-email-register').value.trim();
