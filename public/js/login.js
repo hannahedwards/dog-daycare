@@ -22,7 +22,7 @@ const loginFormHandler = async (event) => {
     }
   };
   
-  const signupFormHandler = async (event) => {
+  const signupFormHandler = async (event) => { //when registered, it takes you immediately to /user endpoint route
     event.preventDefault();
   
     const name = document.querySelector('#customer-name-register').value.trim();
@@ -30,7 +30,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#customer-password-register').value.trim();
   
     if (name && email && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/user', {
         method: 'POST',
         body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -45,9 +45,9 @@ const loginFormHandler = async (event) => {
   };
   
   document
-    .querySelector('form user-login-form')
+    .querySelector('.user-login-form')
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('form register-form')
+    .querySelector('.register-form')
     .addEventListener('submit', signupFormHandler);
