@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//http://localhost:3001/api/user/
 router.post('/', async (req, res) => { //takes us where?
   try {
     const userData = await User.create(req.body);
@@ -17,6 +18,7 @@ router.post('/', async (req, res) => { //takes us where?
   }
 });
 
+//http://localhost:3001/api/user/login
 //endpoint api/user/login - this path is in index.js file on line 10
 router.post('/login', async (req, res) => {
   try {
