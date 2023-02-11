@@ -1,12 +1,12 @@
 <div class="">
   <div class="">
-    <h2 class="">Does {{reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
-    <button class="" data-id="{{reservation}}">Book Now!</button>
+    <h2 class="">Does {{user.reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
+   {{!-- <button class="" data-id="{{reservation}}">Book Now!</button> --}}
   </div>
   <div class="">
-    <p>Your dog is: {{reservation.dog_name}}</p>
-    <p>Breed: {{reservation.breed}}</p>
-    <p>Age: {{reservation.age}}</p>
+    <p>Your dog is: {{user.reservation.dog_name}}</p>
+    <p>Breed: {{user.reservation.breed}}</p>
+    <p>Age: {{user.reservation.age}}</p>
   </div>
 </div>
 
@@ -19,10 +19,6 @@
     <h3>New Reservation</h3>
 
     <form class="new-reservation">
-      <div class="reservation-elements">
-        <label for="reservation-id">Customer id:</label>
-        <input class="form-input" type="number" id="" name="" />
-      </div>
       <div class="reservation-elements">
         <label for="reservation-dog-name">dog's name:</label>
         <input class="form-input" type="text" id="" name="" />
