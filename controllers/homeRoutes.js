@@ -3,11 +3,12 @@ const { Reservation, User } = require('../models') //requiring models
 const withAuth = require('../utils/auth');
 
 //shows homepage.handlebars content that is hardcoded
-router.get('/', (req, res)=> {
-try {res.render('homepage'); 
-} catch (err) {
-    res.status(500).json(err);
-}
+router.get('/', (req, res) => {
+    try {
+        res.render('homepage');
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 //currently renders the reservation form, if typed in manually as "reservation/1"
@@ -34,9 +35,9 @@ try {res.render('homepage');
 //     }
 // });
 
-//currently renders our login page where you are asked to sign in or sign up, but end point shows login, not user 
-//why is this? is this working with the post in userRoutes?
-router.get('/user', withAuth, async (req, res) => { 
+
+//http://localhost:3001/user/
+router.get('/user', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -55,8 +56,9 @@ router.get('/user', withAuth, async (req, res) => {
     }
 });
 
-//currently renders our login page where you are asked to sign in or sign up (why dashboard?)
-router.get('/login', (req, res) => { 
+//http://localhost:3001/login/
+//currently renders our login page where you are asked to sign in or sign up
+router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/user'); //do we want this to land on user or reservation endpoint? Was /dashboard before, but we have no dashboard end point route
         return;
