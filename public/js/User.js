@@ -11,7 +11,7 @@ const reservationFormHandler = async (event) => {
 
   if (name && breed && age && stayLength) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/user/login', {
+    const response = await fetch('/api/reservation', {
       method: 'POST',
       body: JSON.stringify({ name, breed, age, stayLength }),
       headers: { 'Content-Type': 'application/json' },
@@ -19,11 +19,11 @@ const reservationFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the reservation page
-      document.location.replace('/user');
+      document.location.replace('/reservation')
     } else {
       alert(response.statusText);
     }
-  }
+  };
 };
 
 document

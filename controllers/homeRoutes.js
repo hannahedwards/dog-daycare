@@ -11,29 +11,29 @@ router.get('/', (req, res) => {
     }
 });
 
-//currently renders the reservation form, if typed in manually as "reservation/1"
-// router.get('/reservation/:id', async (req, res) => { 
-//     try {
-//         const reservationData = await Reservation.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
+//http://localhost:3001/reservation/
+router.get('/reservation', async (req, res) => { 
+    try {
+        const reservationData = await Reservation.findAll({
+            include: [
+                {
+                    model: Reservation,
+                    attributes: ['name'],
+                },
+            ],
+        });
 
-//          const reservation = reservationData.get({ plain: true });
+         const reservation = reservationData.get({ plain: true });
 
-//         res.render('dashboard', {
-//             ...reservation,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         console.log (err);
-//         res.status(500).json(err);
-//     }
-// });
+        res.render('dashboard', {
+            ...reservation,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        console.log (err);
+        res.status(500).json(err);
+    }
+});
 
 
 //http://localhost:3001/user/
