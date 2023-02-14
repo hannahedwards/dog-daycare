@@ -17,16 +17,16 @@ router.get('/reservation', async (req, res) => {
         const reservationData = await Reservation.findAll({
             include: [
                 {
-                    model: Reservation,
+                    model: User,
                     attributes: ['name'],
                 },
             ],
         });
 
-         const reservation = reservationData.get({ plain: true });
+        //  const reservation = reservationData.get({ plain: true });
 
         res.render('dashboard', {
-            ...reservation,
+            // ...reservation,
             logged_in: req.session.logged_in
         });
     } catch (err) {

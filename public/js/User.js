@@ -3,17 +3,17 @@ const reservationFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the new reservation form in dashboard.handlebars
-  const name = document.querySelector('#dog-name').value.trim();
+  const dog_name = document.querySelector('#dog-name').value.trim();
   const breed = document.querySelector('#dog-breed').value.trim();
   const age = document.querySelector('#dog-age').value.trim();
-  const stayLength = document.querySelector('#dog-stay').value.trim();
+  const stay_length = document.querySelector('#dog-stay').value.trim();
 
 
-  if (name && breed && age && stayLength) {
+  if (dog_name && breed && age && stay_length) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/reservation', {
       method: 'POST',
-      body: JSON.stringify({ name, breed, age, stayLength }),
+      body: JSON.stringify({ dog_name, breed, age, stay_length }),
       headers: { 'Content-Type': 'application/json' },
     });
 
