@@ -1,18 +1,5 @@
-<div class="">
-  <div class="">
-    <h2 class="">Does {{user.reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
-   {{!-- <button class="" data-id="{{reservation}}">Book Now!</button> --}}
-  </div>
-  <div class="">
-    <p>Your dog is: {{user.reservation.dog_name}}</p>
-    <p>Breed: {{user.reservation.breed}}</p>
-    <p>Age: {{user.reservation.age}}</p>
-  </div>
-</div>
 
 <!--get reservation to populate with button above-->
-
-<script src="./js/profile.js"></script> <!--There is no profile.js data in this file-->
 
 <div class="">
   <div class="">
@@ -40,3 +27,17 @@
       </div>
     </form>
   </div>
+
+<div class="">
+  <div class="">
+    <h2 class="">Does {{reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
+   <button class="" data-id="{{reservation}}">Book Now!</button>
+   </div>
+  <div class="">
+    <p>Your dog is: {{reservation.stay_length}}</p>
+    <p>Breed: {{reservation.breed}}</p>
+    <p>Age: {{reservation.age}}</p>
+  </div>
+</div> 
+
+<script src="./js/User.js"></script> <!--There is no profile.js data in this file-->
