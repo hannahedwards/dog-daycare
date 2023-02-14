@@ -29,10 +29,10 @@ Reservation.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-    //   stay_length: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //   },
+      stay_length: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       user_id: {
         type: DataTypes.INTEGER,
         references: {

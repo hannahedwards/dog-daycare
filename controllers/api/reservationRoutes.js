@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Reservation } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//CRUD commands 
+//http://localhost:3001/api/reservation/
 router.post('/', withAuth, async (req, res) => {
     try {
       const newReservation = await Reservation.create({
@@ -16,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
   
+  //http://localhost:3001/api/reservation/1
   router.delete('/:id', withAuth, async (req, res) => {
     try {
       const reservationData = await Reservation.destroy({

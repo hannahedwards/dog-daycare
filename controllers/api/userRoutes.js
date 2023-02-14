@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+//http://localhost:3001/api/user/
+router.post('/', async (req, res) => { //takes us where?
   try {
     const userData = await User.create(req.body);
 
@@ -12,10 +13,13 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.log (err);
     res.status(400).json(err);
   }
 });
 
+//http://localhost:3001/api/user/login
+//endpoint api/user/login - this path is in index.js file on line 10
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -23,7 +27,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' }); //if time allows, should add real pop up messages?
       return;
     }
 
@@ -32,8 +36,8 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
+        .json({ message: 'Incorrect email or password, please try again' }); //if time allows, should add real pop up messages?
+        return;
     }
 
     req.session.save(() => {
@@ -44,6 +48,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+    console.log (err);
     res.status(400).json(err);
   }
 });

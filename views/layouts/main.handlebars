@@ -15,7 +15,7 @@
       <h1>Doggy Daycare</h1>
       <nav>
         {{#if logged_in}}
-        <a href="/dashboard">profile</a> |
+        <a href="/dashboard">profile</a> |<!--I do not think dashboard link goes anywhere, may need to be user?-->
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
@@ -26,7 +26,7 @@
     <image class=""></image>
 
     <main class="">
-      {{{ body }}}
+      {{{ body }}}  <!--uniform design, template, content is what is changing (all the other handlebars) -->
     </main>
   </div>
 

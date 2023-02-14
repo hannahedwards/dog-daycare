@@ -2,6 +2,7 @@
     {
       "dog_name": "Lola",
       "breed": "lab",
+      "stay_length": 2,
       "age": 5
     }
   ]
