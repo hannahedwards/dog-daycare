@@ -9,13 +9,13 @@ router.post('/', withAuth, async (req, res) => {
         ...req.body,
         user_id: req.session.user_id,
       });
-      console.log(newReservation);
       res.status(200).json(newReservation);
     } catch (err) {
       console.log (err);
       res.status(400).json(err);
     }
   });
+
   
   //http://localhost:3001/api/reservation/1
   // router.delete('/:id', withAuth, async (req, res) => {
