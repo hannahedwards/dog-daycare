@@ -44,6 +44,12 @@ const signupFormHandler = async (event) => { //when registered, it takes you imm
   }
 };
 
+async function showReservation() {
+  document.getElementById("reservationForm").add('hide');
+  document.getElementById("bookedReservation").remove('hide');
+}
+
+
 document
   .querySelector('.user-login-form')
   .addEventListener('submit', loginFormHandler);

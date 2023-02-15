@@ -1,24 +1,11 @@
-<div class="">
-  <div class="">
-    <h2 class="">Does {{user.reservation.dog_name}} need a fabulous day at Doggy Daycare?</h2>
-   {{!-- <button class="" data-id="{{reservation}}">Book Now!</button> --}}
-  </div>
-  <div class="">
-    <p>Your dog is: {{user.reservation.dog_name}}</p>
-    <p>Breed: {{user.reservation.breed}}</p>
-    <p>Age: {{user.reservation.age}}</p>
-  </div>
-</div>
 
 <!--get reservation to populate with button above-->
-
-<script src="./js/profile.js"></script> <!--There is no profile.js data in this file-->
 
 <div class="">
   <div class="">
     <h3>New Reservation</h3>
 
-    <form class="new-reservation">
+    <form class="form new-reservation" id="reservationForm">
       <div class="reservation-elements">
         <label for="reservation-dog-name">dog's name:</label>
         <input class="form-input" type="text" id="dog-name" name="" />
@@ -36,7 +23,23 @@
         <input class="form-input" type="number" id="dog-stay" name=""></input>
       </div>
       <div class="reservation-elements">
-        <button type="submit" class="btn">Book Reservation</button>
+        <button type="submit" class="btn" onclick="showReservation">Book Reservation</button>
       </div>
     </form>
   </div>
+{{#each reservations as |reservation| }}
+<div class="" id="bookedReservation">
+  <div class="">
+    <h2 class="">We're excited to see {{user.reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
+    <button class="" data-id="{{reservation}}">Book Now!</button>
+  </div>
+  <div class="">
+    <p>Your dog is: {{reservation.stay_length}}</p>
+    <p>Breed: {{reservation.breed}}</p>
+    <p>Age: {{reservation.age}}</p>
+  </div>
+</div>
+{{/each}}
+
+<script src="./js/User.js"></script>
+

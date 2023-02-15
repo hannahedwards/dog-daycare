@@ -12,4 +12,6 @@ Reservation.belongsTo(User, {
 //    unique: false,
 });
 
+
 module.exports = { User, Reservation };
+
