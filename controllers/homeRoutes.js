@@ -22,11 +22,11 @@ router.get('/reservation', async (req, res) => {
                 },
             ],
         });
-
-        //  const reservation = reservationData.get({ plain: true });
+        //console.log(reservationData);
+         const reservations = reservationData.map(reservation => reservation.get({ plain: true }));
 
         res.render('dashboard', {
-            // ...reservation,
+             ...reservations,
             logged_in: req.session.logged_in
         });
     } catch (err) {

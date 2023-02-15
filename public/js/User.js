@@ -1,3 +1,5 @@
+const reservationsEl = document.getElementsByClassName('btn-delete')
+
 //entering reservation data 
 const reservationFormHandler = async (event) => {
   event.preventDefault();
@@ -19,14 +21,31 @@ const reservationFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the reservation page
-      document.location.replace('/reservation')
+      document.location.replace('/user')
     } else {
       alert(response.statusText);
     }
   };
 };
 
+function deleteReservation(event) {
+  const id = event.target.dataset.id
+  fetch('/api/reservation/' + id, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json'},
+  }).then(function(response) {
+    return response.json()
+  }).then(function(data) {
+    document.location.reload()
+  })
+}
+
 document
   .querySelector('.new-reservation')
   .addEventListener('submit', reservationFormHandler);
 //need to connect with an api end point that will use reservation model 
+
+for (var i = 0; i < reservationsEl.length; i++ ) {
+  var btn = reservationsEl[i]
+  btn.addEventListener('click', deleteReservation)
+};

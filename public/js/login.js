@@ -49,7 +49,6 @@ async function showReservation() {
   document.getElementById("bookedReservation").remove('hide');
 }
 
-
 document
   .querySelector('.user-login-form')
   .addEventListener('submit', loginFormHandler);
