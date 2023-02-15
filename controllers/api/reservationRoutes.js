@@ -18,25 +18,25 @@ router.post('/', withAuth, async (req, res) => {
 
   
   //http://localhost:3001/api/reservation/1
-  // router.delete('/:id', withAuth, async (req, res) => {
-  //   try {
-  //     const reservationData = await Reservation.destroy({
-  //       where: {
-  //         id: req.params.id,
-  //         user_id: req.session.user_id,
-  //       },
-  //     });
+  router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const reservationData = await Reservation.destroy({
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      });
   
-  //     if (!reservationData) {
-  //       res.status(404).json({ message: 'No reservation found with this account!' });
-  //       return;
-  //     }
+      if (!reservationData) {
+        res.status(404).json({ message: 'No reservation found with this account!' });
+        return;
+      }
   
-  //     res.status(200).json(reservationData);
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  //   }
-  // });
+      res.status(200).json(reservationData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
   module.exports = router;
   
