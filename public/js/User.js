@@ -9,13 +9,14 @@ const reservationFormHandler = async (event) => {
   const breed = document.querySelector('#dog-breed').value.trim();
   const age = document.querySelector('#dog-age').value.trim();
   const stay_length = document.querySelector('#dog-stay').value.trim();
+  const reservation_date = document.querySelector('#reservation-day').value.trim();
 
 
-  if (dog_name && breed && age && stay_length) {
+  if (dog_name && breed && age && stay_length && reservation_date) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/reservation', {
       method: 'POST',
-      body: JSON.stringify({ dog_name, breed, age, stay_length }),
+      body: JSON.stringify({ dog_name, breed, age, stay_length, reservation_date }),
       headers: { 'Content-Type': 'application/json' },
     });
 
