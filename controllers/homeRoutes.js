@@ -60,7 +60,7 @@ router.get('/user', withAuth, async (req, res) => {
 //currently renders our login page where you are asked to sign in or sign up
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/user'); //do we want this to land on user or reservation endpoint? Was /dashboard before, but we have no dashboard end point route
+        res.redirect('/user'); 
         return;
     }
     res.render('login');
