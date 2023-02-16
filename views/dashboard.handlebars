@@ -19,7 +19,11 @@
         <input class="form-input" type="number" id="dog-age" name=""></input>
       </div>
       <div class="reservation-elements">
-        <label for="reservation-date">what days do you need doggy daycare?</label>
+        <label for="reservation-day">Please enter the date you would like to reserve for your Dog.</label>
+        <input class="form-input" type="date" id="reservation-day" name=""></input>
+      </div>
+        <div class="reservation-elements">
+        <label for="reservation-date">How many days will your dog need doggy daycare?</label>
         <input class="form-input" type="number" id="dog-stay" name=""></input>
       </div>
       <div class="reservation-elements">
@@ -27,16 +31,18 @@
       </div>
     </form>
   </div>
+
 {{#each reservations as |reservation| }}
 <div class="" id="bookedReservation">
   <div class="">
-    <h2 class="">We're excited to see {{user.reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
+    <h2 class=""> We're excited to see {{reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
     <button class="btn-delete" data-id="{{reservation.id}}">Delete</button>
   </div>
   <div class="">
-    <p>Your dog is: {{reservation.stay_length}}</p>
+    <p>Requested reservation date: {{format_date reservation.reservation_date}}</p>
     <p>Breed: {{reservation.breed}}</p>
     <p>Age: {{reservation.age}}</p>
+    <p>Days reserved at Doggy Daycare: {{reservation.stay_length}}</p>
   </div>
 </div>
 {{/each}}
