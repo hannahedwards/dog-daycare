@@ -29,6 +29,10 @@ Reservation.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      reservation_date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
       stay_length: {
         type: DataTypes.INTEGER,
         allowNull: false,
