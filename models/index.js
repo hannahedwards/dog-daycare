@@ -4,12 +4,10 @@ const Reservation = require('./Reservation')
 User.hasMany(Reservation, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
-    // unique: false,
 });
 
 Reservation.belongsTo(User, {
-   foreignKey: 'user_id', 
-//    unique: false,
+    foreignKey: 'user_id',
 });
 
 

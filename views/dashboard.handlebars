@@ -3,6 +3,7 @@
 
 <div class="">
   <div class="">
+    <h3>Hello, {{name}}!</h3>
     <h3>New Reservation</h3>
 
     <form class="form new-reservation" id="reservationForm">
@@ -16,7 +17,7 @@
       </div>
       <div class="reservation-elements">
         <label for="reservation-dog-age">dog's age:</label>
-        <input class="form-input" type="number" id="dog-age" name=""></input>
+        <input class="form-input" type="number" min="0" id="dog-age" name=""></input>
       </div>
       <div class="reservation-elements">
         <label for="reservation-day">Please enter the date you would like to reserve for your Dog.</label>
@@ -32,13 +33,15 @@
     </form>
   </div>
 
+
 {{#each reservations as |reservation| }}
 <div class="" id="bookedReservation">
   <div class="">
-    <h2 class=""> We're excited to see {{reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
+    <h2 class=""> Thank you for returning! Have a fabulous day at Doggy Daycare!</h2>
     <button class="btn-delete" data-id="{{reservation.id}}">Delete</button>
   </div>
   <div class="">
+    <h2 class=""> We're excited to see {{reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
     <p>Requested reservation date: {{format_date reservation.reservation_date}}</p>
     <p>Breed: {{reservation.breed}}</p>
     <p>Age: {{reservation.age}}</p>
