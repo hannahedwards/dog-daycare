@@ -29,4 +29,4 @@ Amanda Paul - https://github.com/amandapaul1223 Styrling John - https://github.c
 
 ## Links & Screenshots
 
-Heroku Deployed URL:
+[Heroku Deployed URL](https://gentle-fjord-00735.herokuapp.com/)
