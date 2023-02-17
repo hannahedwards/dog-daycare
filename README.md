@@ -37,3 +37,4 @@ Github URL: https://github.com/hannahedwards/dog-daycare.git
 ![alt text](./public/images/login.png)
 ![alt text](./public/images/reservation%20screenshot.png)
 ![alt text](./public/images/upcoming%20reservations.png)
+
