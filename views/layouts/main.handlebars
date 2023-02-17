@@ -15,9 +15,9 @@
 <body class="is-family-monospace">
   <div >
     <header class="">
-      <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
-        <div class="navbar-menu">
-          <div class="navbar-start">
+      <nav class="navbar is-primary" role="navigation" >
+      
+          <div class="navbar-start navbar-brand">
               <a class="navbar-item" href="/">
                 <i class="fa fa-paw fa-3x"></i>
               </a>
@@ -27,12 +27,12 @@
           </div>
             <div class="navbar-item navbar-end is-size-5">
               {{#if logged_in}}
-              <button class="no-button" id="logout">logout</button>
+              <button class="no-button button is-normal is-primary is-light" id="logout">logout</button>
               {{else}}
-              <a href="/login">login</a>
+              <a class="button is-normal is-primary is-light" href="/login">login</a>
               {{/if}}
             </div>
-        </div>
+    
       </nav>
     </header>
     

@@ -1,53 +1,57 @@
+  <h3 class="has-text-centered is-size-3	">Hello, {{name}}!</h3>
 
-<!--get reservation to populate with button above-->
+  <div class="tile is-ancesto px-3r">
+    <div class="tile is-4 is-vertical is-parent">
+      <div class="tile is-child box">
+        <p class="title">Create A New Reservation</p>
+        <form class="form new-reservation" id="reservationForm">
+          <div class="reservation-elements">
+            <label for="reservation-dog-name title">dog's name:</label>
+            <input class="form-input input" type="text" id="dog-name" name="" />
+          </div>
+          <div class="reservation-elements">
+            <label for="reservation-dog-breed">dog's breed:</label>
+            <input class="form-input input" type="text" id="dog-breed" name=""></input>
+          </div>
+          <div class="reservation-elements">
+            <label for="reservation-dog-age">dog's age:</label>
+            <input class="form-input input" type="number" min="0" id="dog-age" name=""></input>
+          </div>
+          <div class="reservation-elements">
+            <label for="reservation-day">Please enter the date you would like to reserve for your Dog.</label>
+            <input class="form-input input" type="date" id="reservation-day" name=""></input>
+          </div>
+          <div class="reservation-elements">
+            <label for="reservation-date">How many days will your dog need doggy daycare?</label>
+            <input class="form-input input" type="number" min="0" id="dog-stay" name=""></input>
+          </div>
+          <br>
+          <div class="reservation-elements">
+            <button type="submit" class="btn button is-normal is-primary is-light" onclick="showReservation">Book Reservation</button>
+          </div>
+        </form>
 
-<div class="">
-  <div class="">
-    <h3>Hello, {{name}}!</h3>
-    <h3>New Reservation</h3>
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Upcoming Reservations</p>
+        {{#each reservations as |reservation| }}
+        <div class="" id="bookedReservation">
+          <div class="">
+            <h2 class=""> Thank you for returning! Have a fabulous day at Doggy Daycare!</h2>
 
-    <form class="form new-reservation" id="reservationForm">
-      <div class="reservation-elements">
-        <label for="reservation-dog-name">dog's name:</label>
-        <input class="form-input" type="text" id="dog-name" name="" />
+          </div>
+          <div class="">
+            <h2 class=""> We're excited to see {{reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
+            <p>Requested reservation date: {{format_date reservation.reservation_date}}</p>
+            <p>Breed: {{reservation.breed}}</p>
+            <p>Age: {{reservation.age}}</p>
+            <p>Days reserved at Doggy Daycare: {{reservation.stay_length}}</p>
+            <button class="btn-delete button is-normal is-primary is-light" data-id="{{reservation.id}}">Delete</button>
+          </div>
+        </div>
+        {{/each}}
       </div>
-      <div class="reservation-elements">
-        <label for="reservation-dog-breed">dog's breed:</label>
-        <input class="form-input" type="text" id="dog-breed" name=""></input>
-      </div>
-      <div class="reservation-elements">
-        <label for="reservation-dog-age">dog's age:</label>
-        <input class="form-input" type="number" min="0" id="dog-age" name=""></input>
-      </div>
-      <div class="reservation-elements">
-        <label for="reservation-day">Please enter the date you would like to reserve for your Dog.</label>
-        <input class="form-input" type="date" id="reservation-day" name=""></input>
-      </div>
-        <div class="reservation-elements">
-        <label for="reservation-date">How many days will your dog need doggy daycare?</label>
-        <input class="form-input" type="number" min="0" id="dog-stay" name=""></input>
-      </div>
-      <div class="reservation-elements">
-        <button type="submit" class="btn" onclick="showReservation">Book Reservation</button>
-      </div>
-    </form>
+    </div>
   </div>
 
-
-{{#each reservations as |reservation| }}
-<div class="" id="bookedReservation">
-  <div class="">
-    <h2 class=""> Thank you for returning! Have a fabulous day at Doggy Daycare!</h2>
-    <button class="btn-delete" data-id="{{reservation.id}}">Delete</button>
-  </div>
-  <div class="">
-    <h2 class=""> We're excited to see {{reservation.dog_name}} for a fabulous day at Doggy Daycare!</h2>
-    <p>Requested reservation date: {{format_date reservation.reservation_date}}</p>
-    <p>Breed: {{reservation.breed}}</p>
-    <p>Age: {{reservation.age}}</p>
-    <p>Days reserved at Doggy Daycare: {{reservation.stay_length}}</p>
-  </div>
-</div>
-{{/each}}
-
-<script src="./js/User.js"></script>
+  <script src="./js/User.js"></script>
